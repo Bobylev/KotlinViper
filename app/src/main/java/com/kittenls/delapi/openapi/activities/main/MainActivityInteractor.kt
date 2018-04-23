@@ -11,17 +11,18 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class MainActivityInteractor @Inject constructor() : BaseInteractor<InteractorOutput>(), Interactor {
+
+    @Inject
+    lateinit var mealApiService: ICallHub
+
     override fun loadCategories(): Observable<MealCategories> {
         return mealApiService.getCategories()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
-    @Inject
-    lateinit var mealApiService: ICallHub
-
-    override fun searchRequest(str: String) : Observable<Meals> {
-         return mealApiService.search(str)
+    override fun searchRequest(str: String): Observable<Meals> {
+        return mealApiService.search(str)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }

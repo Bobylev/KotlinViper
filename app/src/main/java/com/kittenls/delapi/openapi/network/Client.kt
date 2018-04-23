@@ -12,14 +12,10 @@ class Client {
                     .connectTimeout(10, TimeUnit.SECONDS)
                     .writeTimeout(10, TimeUnit.SECONDS)
                     .readTimeout(30, TimeUnit.SECONDS)
-            client.interceptors().add(OKInterceptor.getLogInterceptor(logger))
+            client.interceptors().add(getLogInterceptor(logger))
             return client.build()
         }
-    }
-}
 
-class OKInterceptor{
-    companion object {
         fun getLogInterceptor(logger: Logger): Interceptor {
             val interceptor = Interceptor { chain ->
 
