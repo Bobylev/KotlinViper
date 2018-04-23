@@ -8,7 +8,7 @@ import android.view.MenuItem
 import com.kittenls.delapi.openapi.R
 import com.kittenls.delapi.openapi.activities.base.BaseActivity
 import com.kittenls.delapi.openapi.activities.main.adapter.MealAdapter
-import com.kittenls.delapi.openapi.network.data.Meals
+import com.kittenls.delapi.openapi.network.data.MealCategories
 import dagger.android.AndroidInjection
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,6 +26,8 @@ class MainActivity : BaseActivity(), MainActivityContracts.View {
 
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        presenter.loadCategories()
 
         fab.setOnClickListener {
             presenter.getSearch("Ar")
@@ -51,8 +53,8 @@ class MainActivity : BaseActivity(), MainActivityContracts.View {
             Snackbar.make(foodMain, "Error" + error.message, Snackbar.LENGTH_SHORT).show()
 
 
-    override fun showData(meals: Meals) {
-        Snackbar.make(foodMain, meals.meals.get(0).strMeal, Snackbar.LENGTH_SHORT).show()
-        mealRecyclerList.adapter = MealAdapter(meals.meals)
+    override fun showData(mealsCategories: MealCategories) {
+        //Snackbar.make(foodMain, meals.meals.get(0).strMeal, Snackbar.LENGTH_SHORT).show()
+        mealRecyclerList.adapter = MealAdapter(mealsCategories.mealCategories)
     }
 }

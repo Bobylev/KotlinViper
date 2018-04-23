@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.kittenls.delapi.openapi.R
-import com.kittenls.delapi.openapi.network.data.Meal
+import com.kittenls.delapi.openapi.network.data.MealCategory
 
 
-class MealAdapter(val meals: List<Meal>?): RecyclerView.Adapter<MealAdapter.MealCard>(){
+class MealAdapter(val meals: List<MealCategory>?): RecyclerView.Adapter<MealAdapter.MealCard>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealCard {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.meal_recycler_item, parent, false)
@@ -21,8 +21,8 @@ class MealAdapter(val meals: List<Meal>?): RecyclerView.Adapter<MealAdapter.Meal
     }
 
     override fun onBindViewHolder(holder: MealCard, position: Int) {
-        holder.mealId.text = meals?.get(position)?.idMeal.toString()
-        holder.mealName.text = meals?.get(position)?.strMeal
+        holder.mealId.text = meals?.get(position)?.idCategory.toString()
+        holder.mealName.text = meals?.get(position)?.strCategory
     }
 
     class MealCard(meal: View): RecyclerView.ViewHolder(meal){
