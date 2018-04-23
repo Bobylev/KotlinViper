@@ -16,8 +16,8 @@ class Client {
             return client.build()
         }
 
-        fun getLogInterceptor(logger: Logger): Interceptor {
-            val interceptor = Interceptor { chain ->
+        private fun getLogInterceptor(logger: Logger): Interceptor {
+            return Interceptor { chain ->
 
                 val requestUrl = chain.request()?.url().toString()
                 val startRequest = System.nanoTime()
@@ -28,7 +28,6 @@ class Client {
 
                 result
             }
-            return interceptor
         }
     }
 }
