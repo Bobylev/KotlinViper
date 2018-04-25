@@ -5,6 +5,4 @@ import com.kittenls.delapi.openapi.activities.main.detail.DetailActivityContract
 import javax.inject.Inject
 
 class DetailActivityPresenter @Inject constructor(view: View, interactor: Interactor, router: Router):
-       BasePresenter<View, Interactor,Router>(view, interactor, router), Presenter, InteractorOutput{
-
-}
+       BasePresenter<View, Interactor,Router>(view, interactor, router), Presenter, InteractorOutput

@@ -23,8 +23,7 @@ interface MainActivityContracts {
         fun loadCategories(): Observable<MealCategories>
     }
 
-    interface InteractorOutput : BaseContracts.InteractorOutput {
-    }
+    interface InteractorOutput : BaseContracts.InteractorOutput
 
     interface Router : BaseContracts.Router {
         fun navigateToDetail(index: Int)

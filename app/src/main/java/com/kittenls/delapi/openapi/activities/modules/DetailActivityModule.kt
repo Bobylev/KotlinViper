@@ -1,6 +1,5 @@
 package com.kittenls.delapi.openapi.activities.modules
 
-import com.kittenls.delapi.openapi.activities.main.*
 import com.kittenls.delapi.openapi.activities.main.detail.*
 import com.kittenls.delapi.openapi.application.ActivityScope
 import dagger.Binds

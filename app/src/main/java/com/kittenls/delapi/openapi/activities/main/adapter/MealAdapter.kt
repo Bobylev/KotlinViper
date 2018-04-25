@@ -20,7 +20,7 @@ class MealAdapter(val meals: List<MealCategory>?, val presenter: MainActivityPre
     }
 
     override fun getItemCount(): Int {
-        return if(meals != null) meals.size else 0
+        return meals?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: MealCard, position: Int) {
