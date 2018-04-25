@@ -2,7 +2,6 @@ package com.kittenls.delapi.openapi.activities.main
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import com.kittenls.delapi.openapi.R
@@ -33,8 +32,8 @@ class MainActivity : BaseActivity(), MainActivityContracts.View {
             presenter.getSearch("Ar")
         }
 
-        val recycler = findViewById<RecyclerView>(R.id.mealRecyclerList)
-        recycler.adapter = MealAdapter(null)
+        mealRecyclerList.adapter = MealAdapter(null, presenter)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -55,6 +54,6 @@ class MainActivity : BaseActivity(), MainActivityContracts.View {
 
     override fun showData(mealsCategories: MealCategories) {
         //Snackbar.make(foodMain, meals.meals.get(0).strMeal, Snackbar.LENGTH_SHORT).show()
-        mealRecyclerList.adapter = MealAdapter(mealsCategories.mealCategories)
+        mealRecyclerList.adapter = MealAdapter(mealsCategories.mealCategories, presenter)
     }
 }

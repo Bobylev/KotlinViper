@@ -8,10 +8,11 @@ import android.widget.TextView
 import com.facebook.drawee.drawable.ProgressBarDrawable
 import com.facebook.drawee.view.SimpleDraweeView
 import com.kittenls.delapi.openapi.R
+import com.kittenls.delapi.openapi.activities.main.MainActivityPresenter
 import com.kittenls.delapi.openapi.network.data.MealCategory
 
 
-class MealAdapter(val meals: List<MealCategory>?): RecyclerView.Adapter<MealAdapter.MealCard>(){
+class MealAdapter(val meals: List<MealCategory>?, val presenter: MainActivityPresenter): RecyclerView.Adapter<MealAdapter.MealCard>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealCard {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.meal_recycler_item, parent, false)
@@ -23,6 +24,7 @@ class MealAdapter(val meals: List<MealCategory>?): RecyclerView.Adapter<MealAdap
     }
 
     override fun onBindViewHolder(holder: MealCard, position: Int) {
+        holder.itemView.setOnClickListener{_ ->  presenter.categoryItemClick(meals?.get(position)?.idCategory) }
         holder.mealId.text = meals?.get(position)?.idCategory.toString()
         holder.mealName.text = meals?.get(position)?.strCategory
         holder.mealCategoryImage.hierarchy.setProgressBarImage(ProgressBarDrawable())

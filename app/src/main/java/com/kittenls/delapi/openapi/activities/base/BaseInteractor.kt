@@ -4,6 +4,7 @@ abstract class BaseInteractor<O : BaseContracts.InteractorOutput> : BaseContract
 
     protected var output: O? = null
 
+    @Suppress("UNCHECKED_CAST")
     override fun setInteractorOutput(interactorOutput: Any) {
         if (interactorOutput is BaseContracts.InteractorOutput) this.output = interactorOutput as O
     }
