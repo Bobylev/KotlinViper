@@ -6,7 +6,8 @@ import javax.inject.Inject
 
 class MainActivityPresenter @Inject constructor(view: View, interactor: Interactor, router: Router):
        BasePresenter<View, Interactor,Router>(view, interactor, router), Presenter, InteractorOutput{
-    override fun categoryItemClick(index: Int?) {
+
+    override fun categoryItemClick(index: String?) {
         if(index != null){
             router?.navigateToDetail(index)
         }

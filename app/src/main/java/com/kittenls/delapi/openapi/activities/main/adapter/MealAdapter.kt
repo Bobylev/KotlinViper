@@ -24,7 +24,7 @@ class MealAdapter(val meals: List<MealCategory>?, val presenter: MainActivityPre
     }
 
     override fun onBindViewHolder(holder: MealCard, position: Int) {
-        holder.itemView.setOnClickListener{_ ->  presenter.categoryItemClick(meals?.get(position)?.idCategory) }
+        holder.itemView.setOnClickListener{_ ->  presenter.categoryItemClick(meals?.get(position)?.strCategory) }
         holder.mealId.text = meals?.get(position)?.idCategory.toString()
         holder.mealName.text = meals?.get(position)?.strCategory
         holder.mealCategoryImage.hierarchy.setProgressBarImage(ProgressBarDrawable())

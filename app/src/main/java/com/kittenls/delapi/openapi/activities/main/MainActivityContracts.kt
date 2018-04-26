@@ -15,7 +15,7 @@ interface MainActivityContracts {
     interface Presenter : BaseContracts.Presenter {
         fun getSearch(str: String)
         fun loadCategories()
-        fun categoryItemClick(index: Int?)
+        fun categoryItemClick(index: String?)
     }
 
     interface Interactor : BaseContracts.Interactor {
@@ -26,7 +26,7 @@ interface MainActivityContracts {
     interface InteractorOutput : BaseContracts.InteractorOutput
 
     interface Router : BaseContracts.Router {
-        fun navigateToDetail(index: Int)
+        fun navigateToDetail(index: String)
     }
 
 }

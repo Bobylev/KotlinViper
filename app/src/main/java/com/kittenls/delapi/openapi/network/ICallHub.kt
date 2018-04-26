@@ -12,4 +12,8 @@ interface ICallHub {
 
     @GET("categories.php")
     fun getCategories(): Observable<MealCategories>
+
+    @GET("filter.php")
+    fun getCategoryMealList(@Query("c") category: String) : Observable<Meals>
+
 }

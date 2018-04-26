@@ -6,11 +6,11 @@ import com.kittenls.delapi.openapi.activities.main.detail.DetailActivity
 import javax.inject.Inject
 
 class MainActivityRouter @Inject constructor(activity : MainActivity): BaseRouter<MainActivity>(activity), MainActivityContracts.Router{
-    override fun navigateToDetail(index: Int) {
+    override fun navigateToDetail(index: String) {
 
-        var intent = Intent(activity, DetailActivity::class.java)
+        val intent = Intent(activity, DetailActivity::class.java)
+        intent.putExtra("categoryId", index)
         activity?.startActivity(intent)
-
     }
 
 }
