@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFactory
+import com.facebook.stetho.Stetho
 import com.squareup.leakcanary.LeakCanary
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -40,6 +41,8 @@ class ApiApplication : Application(), HasActivityInjector {
                 .build()
 
         Fresco.initialize(this, config)
+
+        Stetho.initializeWithDefaults(this)
     }
 
 
